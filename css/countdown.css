@@ -1,0 +1,13 @@
+/* countdown.css */
+.countdown-text {
+    font-size: 40px;
+    color: #f7f70b;
+}
+
+.countdown-label {
+    font-weight: bold;
+}
+
+.countdown-time {
+    color: #f3dd15;
+}
