@@ -1,5 +1,3 @@
-// countdown.js
-
 // let endDate = new Date('2023-12-20T00:00:00').getTime();
 // let endDate = new Date('2023-12-22T00:00:00').getTime();
 
