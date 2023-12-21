@@ -1,8 +1,7 @@
 
 .countdown-text {
-    font-size: 60px;
     color: #F88F85;
-    margin-top: -20px;
+    margin-top: 20px;
 }
 
 .countdown-label {
@@ -11,4 +10,23 @@
 
 .countdown-time {
     color: #F88F85;
+}
+
+.responsive-countdown {
+font-size: 3rem; /* Default size */
+
+}
+
+/* Adjustments for smaller devices */
+@media (max-width: 1000px) {
+.responsive-countdown {
+    font-size: 2rem; /* Smaller devices */
+}
+}
+
+/* Adjustments for very small devices */
+@media (max-width: 767px) {
+.responsive-countdown {
+    font-size: 1.5rem; /* Very small devices */
+}
 }
