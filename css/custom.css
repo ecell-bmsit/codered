@@ -21,7 +21,7 @@ body {
 }
 
 .sub-heading-title {
-	padding: 6em 0 2em 0;
+	padding: 3em 0 2em 0;
 }
 
 .vertical-padding {
@@ -624,7 +624,7 @@ p {
   position: relative;
   width: 100%;
   height: auto;
-  min-height: 35rem;
+  min-height: 20rem;
   padding-top: 10rem;
   background: url("");
   background-position: center;
