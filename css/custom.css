@@ -37,11 +37,44 @@ body {
 	-webkit-transform: skewY(-2deg);
 }
 
+/* footer starts */
 .footer-section {
-	margin-top: -2em;
-	padding: 2em 0 2em 0;
-	opacity: 1;
+  margin-top: -2em;
+  padding: 2em 0;
+  opacity: 1;
+  color: #fff; /* Ensuring text color is white for all footer content */
 }
+
+.footer-navigation h5 {
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.footer-navigation ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.footer-navigation ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.25em 0;
+  display: block; /* Optional: makes the entire area clickable */
+}
+
+.footer-navigation ul li a:hover {
+  text-decoration: underline; /* Optional: Adds an underline on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .footer-navigation,
+  .footer-navigation ul li a {
+    text-align: center; /* Centers the navigation links on small screens */
+  }
+}
+
+/* footer ends */
 
 .foreground {
 	z-index: 3;
