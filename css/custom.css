@@ -497,7 +497,7 @@ header, section {
   margin-left: 90px;
   text-align: center;
   font-family: "Title";
-  color: white;
+  color: rgb(221, 5, 5);
   font-size: 2rem;
 }
 @media screen and (max-width: 600px) {
@@ -550,7 +550,7 @@ p {
   font-family: "Title";
   text-align: center;
   opacity: 1;
-  background: url("../img/title-scrolling.png");
+  background: url("../img/title-scrolling.jpeg");
   background-repeat: repeat-x;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -717,7 +717,7 @@ p {
 }
 
 .sponsor-tier {
-  color: #;
+  color: white;
 }
 
 .sponsor-img-container {
