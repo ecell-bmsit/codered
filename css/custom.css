@@ -285,7 +285,7 @@ header, section {
   visibility: visible;
 }
 
-#mlh-trust-badge {
+#bmsit-logo {
 	display:block;
 	max-width:120px!important;
 	min-width:50px!important;
@@ -295,6 +295,13 @@ header, section {
 	top:0;
 	width:10%;
 	z-index:10000
+}
+
+@media screen and (max-width: 768px) {
+  #bmsit-logo {
+    margin-top: 15px;
+    width: 100%;
+  }
 }
 
 /* ---- Mobile only styling ---- */
@@ -487,17 +494,33 @@ header, section {
 
 .masthead h2,
 .sub-heading {
+  margin-left: 90px;
   text-align: center;
   font-family: "Title";
   color: white;
   font-size: 2rem;
 }
+@media screen and (max-width: 600px) {
+  .masthead h2,
+  .sub-heading {
+    margin-left: 40px;
+    font-size: 150%;
+   
+  }
+}
+
 p {
 	margin: 0;
 }
 
 .nexa {
 	font-family: "Title";
+  text-align: left;
+}
+
+.nexa2 {
+  font-family: "Title";
+
 }
 
 .black {

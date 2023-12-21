@@ -1,9 +1,8 @@
-/* countdown.css */
-
 
 .countdown-text {
-    font-size: 40px;
+    font-size: 60px;
     color: #F88F85;
+    margin-top: -20px;
 }
 
 .countdown-label {
