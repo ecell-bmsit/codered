@@ -420,6 +420,13 @@ header, section {
 }
 
 @font-face {
+  font-family: 'Squartiqa 4F';
+  src: url('font\Squartiqa4F.otf') format('woff');
+  font-weight: normal;
+  font-size: normal;
+}
+
+@font-face {
   font-family: "ProximaRegular";
   src: url("../font/ProximaNovaRegular.otf");
   font-weight: normal;
