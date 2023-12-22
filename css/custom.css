@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: #070727;
+  background: #012c49;
 }
 
 #particles-js { 
@@ -504,18 +504,30 @@ header, section {
 
 .masthead h2,
 .sub-heading {
-  margin-left: 90px;
   text-align: center;
   font-family: "Title";
   color: rgb(221, 5, 5);
   font-size: 2rem;
 }
+
+.sub-heading {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.masthead h2 {
+  margin-left: 90px;
+}
+
 @media screen and (max-width: 600px) {
   .masthead h2,
   .sub-heading {
-    margin-left: 40px;
     font-size: 150%;
    
+  }
+
+  .masthead h2 {
+    margin-left: 40px;
   }
 }
 
@@ -776,6 +788,7 @@ p {
 #mainNav.navbar-shrink .nav-link:hover {
     color: rgba(240, 176, 54) !important;
 }
+
 #phoneIcon {
   transform: rotate(90deg);
 }
