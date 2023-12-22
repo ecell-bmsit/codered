@@ -37,6 +37,16 @@ body {
 	-webkit-transform: skewY(-2deg);
 }
 
+
+.prize-icon {
+    width: 1.5cm;
+    height: 1.5cm;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 /* footer starts */
 .footer-section {
   margin-top: -2em;
