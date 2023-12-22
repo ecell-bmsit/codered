@@ -1,8 +1,5 @@
-//let endDate = new Date('2023-12-20T00:00:00').getTime();
-//let endDate = new Date('2023-12-22T00:00:00').getTime();
-
-let startDate = new Date('2023-12-22T13:00:00').getTime();
-let endDate = new Date('2024-1-14T00:00:00').getTime();   
+let startDate = new Date('2023-12-23T13:00:00').getTime();
+let endDate = new Date('2024-1-3T23:59:59').getTime();   
 let started = false;
 let finished = false;
 let timeLeft = calculateTimeToStart();
@@ -35,13 +32,13 @@ function updateCountdown() {
   if (started && !finished) {
     countdownText.innerHTML = `
       <p class="countdown-text">
-        <span class="countdown-label">Hackathon will end in</span>
+        <span class="countdown-label">Registrations will end in</span>
         <span class="countdown-time">${timeRemaining}</span>
       </p>`;
   } else if (!started && !finished) {
     countdownText.innerHTML = `
       <p class="countdown-text">
-        <span class="countdown-label">Hackathon will start in</span>
+        <span class="countdown-label">Registrations will start in</span>
         <span class="countdown-time">${timeLeft}</span>
       </p>`;
   } else if (finished) {
