@@ -1,6 +1,6 @@
 
 .countdown-text {
-    color: #F88F85;
+    color: #50eafb;
     margin-top: 20px;
 }
 
@@ -9,7 +9,8 @@
 }
 
 .countdown-time {
-    color: #F88F85;
+    font-weight: bold;
+    color: #ff0000;
 }
 
 .responsive-countdown {
