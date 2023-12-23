@@ -1,8 +1,7 @@
 // countdown.js
 
 // let endDate = new Date('2023-12-20T00:00:00').getTime();
-// let endDate = new Date('2023-12-24T00:00:00').getTime();
-
+// let endDate = new Date('2023-12-23T19:00:00').getTime();
 
 let startDate = new Date('2023-12-23T15:00:00').getTime();
 let endDate = new Date('2024-01-05T23:59:59').getTime();   
@@ -10,6 +9,10 @@ let started = false;
 let finished = false;
 let timeLeft = calculateTimeToStart();
 let timeRemaining = calculateTimeRemaining();
+
+function formatTimeComponent(value) {
+  return value < 10 ? '0' + value : value;
+}
 
 function calculateTimeToStart() {
   const currentTime = Date.now();
@@ -19,7 +22,7 @@ function calculateTimeToStart() {
   const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
 
-  return `${days < 1 ? '00' : ''}:${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  return `${formatTimeComponent(days)}:${formatTimeComponent(hours)}:${formatTimeComponent(minutes)}:${formatTimeComponent(seconds)}`;
 }
 
 function calculateTimeRemaining() {
@@ -30,7 +33,7 @@ function calculateTimeRemaining() {
   const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
 
-  return `${days}:${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  return `${formatTimeComponent(days)}:${formatTimeComponent(hours)}:${formatTimeComponent(minutes)}:${formatTimeComponent(seconds)}`;
 }
 
 function updateCountdown() {
@@ -62,7 +65,7 @@ function updateTimer() {
     if (Date.now() >= startDate) {
       started = true;
     }
-    if (timeRemaining === '0d 00:00:00') {
+    if (timeRemaining === '00:00:00:00') {
       clearInterval(timer);
       finished = true;
     }
