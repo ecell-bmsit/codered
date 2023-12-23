@@ -1,5 +1,11 @@
-let startDate = new Date('2023-12-23T13:00:00').getTime();
-let endDate = new Date('2024-1-3T23:59:59').getTime();   
+// countdown.js
+
+// let endDate = new Date('2023-12-20T00:00:00').getTime();
+// let endDate = new Date('2023-12-24T00:00:00').getTime();
+
+
+let startDate = new Date('2023-12-23T15:00:00').getTime();
+let endDate = new Date('2024-01-05T23:59:59').getTime();   
 let started = false;
 let finished = false;
 let timeLeft = calculateTimeToStart();
@@ -8,23 +14,23 @@ let timeRemaining = calculateTimeRemaining();
 function calculateTimeToStart() {
   const currentTime = Date.now();
   const remaining = Math.max(0, startDate - currentTime);
-  const seconds = Math.floor(remaining / 1000);
-  const hours = Math.floor(seconds / 3600);
-  const minutes = Math.floor((seconds % 3600) / 60);
-  const remainingSeconds = seconds % 60;
+  const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
 
-  return `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+  return `${days < 1 ? '00' : ''}:${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
 
 function calculateTimeRemaining() {
   const currentTime = Date.now();
   const remaining = Math.max(0, endDate - currentTime);
-  const seconds = Math.floor(remaining / 1000);
-  const hours = Math.floor(seconds / 3600);
-  const minutes = Math.floor((seconds % 3600) / 60);
-  const remainingSeconds = seconds % 60;
+  const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
 
-  return `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+  return `${days}:${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
 
 function updateCountdown() {
@@ -56,7 +62,7 @@ function updateTimer() {
     if (Date.now() >= startDate) {
       started = true;
     }
-    if (timeRemaining === '00:00:00') {
+    if (timeRemaining === '0d 00:00:00') {
       clearInterval(timer);
       finished = true;
     }
