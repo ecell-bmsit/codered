@@ -51,6 +51,7 @@
     font-weight: 100;
     font-size: 0.9em;
     min-width: 120px;
+    font-weight: bold;
   }
   
   @media (max-width: 767px) {
@@ -76,4 +77,12 @@
     .timeline-1 .event:after {
       left: -31.8px;
     }
+  }
+
+  .timeline-1 .event p{
+    font-weight: 600;
+  }
+
+  .timeline-1 .event h4 {
+    font-weight: 700;
   }
