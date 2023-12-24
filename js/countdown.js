@@ -4,7 +4,7 @@
 // let endDate = new Date('2023-12-23T19:00:00').getTime();
 
 let startDate = new Date('2023-12-23T15:00:00').getTime();
-let endDate = new Date('2024-01-05T23:59:59').getTime();   
+let endDate = new Date('2024-01-04T23:59:59').getTime();   
 let started = false;
 let finished = false;
 let timeLeft = calculateTimeToStart();
@@ -53,7 +53,7 @@ function updateCountdown() {
   } else if (finished) {
     countdownText.innerHTML = `
       <p class="countdown-text">
-        <span class="countdown-label">⌛ Time's up</span>
+        <span class="countdown-label">⌛ Registrations Closed</span>
       </p>`;
   }
 }
