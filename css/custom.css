@@ -508,6 +508,7 @@ header, section {
   font-family: "Title";
   color: rgb(221, 5, 5);
   font-size: 2rem;
+  white-space: nowrap;
 }
 
 .sub-heading {
@@ -516,18 +517,18 @@ header, section {
 }
 
 .masthead h2 {
-  margin-left: 90px;
+  margin-left: 60px;
 }
 
 @media screen and (max-width: 600px) {
   .masthead h2,
   .sub-heading {
-    font-size: 150%;
-   
+    font-size: 135%;
+    white-space: normal;
   }
 
   .masthead h2 {
-    margin-left: 40px;
+    margin-left: 2rem;
   }
 }
 

@@ -58,6 +58,7 @@
     .timeline-1 .event:before {
       left: 0px;
       text-align: left;
+      font-weight: bold;
     }
   }
   
