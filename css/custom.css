@@ -830,3 +830,24 @@ p {
 #phoneIcon {
   transform: rotate(90deg);
 }
+
+.register-button {
+  display: inline-block;
+  padding: 7px 15px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #2a4de9;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #afb3c2;
+  /* Darker shade on hover */
+}
+
+.register-button i {
+  margin-right: 5px;
+  /* Adjust the spacing between icon and text */
+}
