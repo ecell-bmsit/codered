@@ -1,0 +1,69 @@
+.team-card {
+    max-width: 400px;
+    /* Adjust card size as needed */
+    margin: 0 auto;
+    /* Center the card */
+    overflow: hidden;
+    /* Ensures nothing spills out */
+    border-radius: 3em;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Adds shadow for depth */
+}
+
+.team-image {
+    width: 100%;
+    height: 300px; /* Set a fixed height for the image container */
+    border-top-right-radius: 3em;
+    border-top-left-radius: 3em;
+    overflow: hidden; /* Ensures the image stays within the bounds */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+}
+
+.team-image img {
+    width: 100%; /* Ensures image covers the card width */
+    height: 300px; /* Set a fixed height for all images */
+    object-fit: contain; /* The image will be scaled to maintain its aspect ratio while fitting within the element’s content box */
+    object-position: center; /* Centers the image within the element’s box */
+    border-top-right-radius: 3em;
+    border-top-left-radius: 3em;
+}
+
+
+
+.team-textbox {
+    background: black;
+    border-bottom-right-radius: 3em;
+    border-bottom-left-radius: 3em;
+    padding: 20px;
+    color: white;
+}
+
+
+.team-name,
+.team-study,
+.team-social {
+    text-align: center;
+    /* Centers the text */
+}
+
+.team-study {
+    font-size: 0.9rem;
+    /* Adjust font size as needed */
+}
+
+/* Social Icons */
+.team-social a {
+    margin: 0 5px;
+    /* Space between icons */
+    color: white;
+    /* Ensures icons are visible on black background */
+}
+
+.team-social a:hover {
+    color: #ff8c00;
+    /* Orange color on hover */
+}
+
