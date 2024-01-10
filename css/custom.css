@@ -877,3 +877,29 @@ p {
   margin-right: 5px;
   /* Adjust the spacing between icon and text */
 }
+
+.powered-by {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem; /* Adjust the font size as needed */
+}
+
+.sponsor-logo {
+  max-width: 200px; /* Maximum width of the logo */
+  height: auto; /* Maintain aspect ratio */
+  margin-left: 10px; /* Space between text and logo */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .powered-by {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .sponsor-logo {
+      margin-left: 0;
+      margin-top: 10px;
+  }
+}
