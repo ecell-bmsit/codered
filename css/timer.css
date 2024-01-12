@@ -1,0 +1,25 @@
+#timer {
+    font-size: 3.5em;
+    color: #ffffff;
+    text-align: center;
+}
+
+.timer-name {
+    text-align: center;
+    font-family: "Title";
+    color: rgb(221, 5, 5);
+    font-size: 2rem;
+    word-spacing: 14px;
+}
+
+.info-at-specific-time {
+    font-size: 90px;
+    color: #ffffff;
+    text-shadow: #F31313;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #000000;
+}
