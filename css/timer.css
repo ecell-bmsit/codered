@@ -18,6 +18,17 @@
     text-shadow: #F31313;
 }
 
+.evaluation {
+    font-size: 30px;
+    color: #ffffff;
+    background-color: #000000;
+    text-shadow: #F31313;
+}
+
+.evaluation li {
+    
+}
+
 body {
     margin: 0;
     padding: 0;
