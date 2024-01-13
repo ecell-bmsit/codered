@@ -1,4 +1,4 @@
- const targetDate = new Date('2024-01-13T10:50:00').getTime() + 24 * 60 * 60 * 1000;
+ const targetDate = new Date('2024-01-13T11:00:00').getTime() + 24 * 60 * 60 * 1000;
 
         // Update the timer every second
         const timerInterval = setInterval(updateTimer, 1000);
