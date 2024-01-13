@@ -25,8 +25,12 @@
     text-shadow: #F31313;
 }
 
-.evaluation li {
-    
+@media (min-width:992px) {
+    .masthead .title-text {
+        font-size: 9rem;
+        line-height: 9rem;
+        letter-spacing: .8rem
+    }
 }
 
 body {
