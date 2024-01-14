@@ -12,7 +12,6 @@
 
             if (remainingTime <= 0) {
                 // Stop the timer when 24 hours are completed
-                clearInterval(timerInterval);
                 document.getElementById('timer').innerHTML = '00 : 00 : 00';
             } else {
                 // Calculate hours, minutes, and seconds
