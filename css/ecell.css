@@ -1,0 +1,229 @@
+@font-face {
+    font-family: 'valorant';
+    src: url('./fonts/Orbitron-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'sd-dystopian';
+    src: url('./fonts/sd-dystopian.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'eurostile';
+    src: url('./fonts/EuroStyleNormal.ttf') format('truetype');
+}
+
+:root {
+    --neon-blue: #00f0ff;
+    --neon-pink: #ff00b8;
+    --dark-background: #0a0a1a;
+    --grid-background: #121228;
+    --cyber-primary: #890408;
+    --cyber-secondary: #FB0000;
+    --cyber-accent: #FF4D4D;
+    --cyber-dark: #1A1A1A;
+    --cyber-light: #FFFFFF;
+
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-background);
+    color: white;
+    overflow-x: hidden;
+}
+
+
+nav {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+}
+
+.navbar-brand i {
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+
+.volunteer-title {
+    text-align: center;
+    font-family: 'sd-dystopian', sans-serif;
+    color: var(--cyber-red);
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: 2rem;
+
+    text-shadow: 0 0 10px rgba(251, 0, 0, 0.3);
+}
+
+.cyber-footer {
+    background: #1a1a1a;
+    color: #f5f5f5;
+    padding: 1.5rem 0;
+    text-align: center;
+    border-top: 2px solid #ff007f;
+}
+
+
+.volunteer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.volunteer-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: 'valorant', sans-serif;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cyber-section-ecell {
+    padding-top: var(--navbar-height);
+    position: relative;
+    margin-top: 2rem;
+    overflow: hidden;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+
+.cyber-section-ecell::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(120deg, rgba(251, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 50%),
+        linear-gradient(60deg, rgba(251, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 50%);
+    background-size: 60px 60px;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.volunteer-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.volunteer-name {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 350px;
+}
+
+.volunteer-position {
+    color: #c0c0c0;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 350px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: auto;
+}
+
+.social-icon {
+    background-color: rgba(255, 0, 184, 0.1);
+    color: var(--accent-color);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.volunteer-card:hover .social-icon {
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+}
+
+.volunteer-card:hover .volunteer-image {
+    transform: scale(1.1);
+}
+
+
+
+@media (max-width: 1024px) {
+    .volunteer-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .volunteer-image {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .volunteer-card {
+        height: 340px;
+    }
+}
+
+@media (max-width: 768px) {
+    .volunteer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .volunteer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .volunteers-title {
+        font-size: 2rem;
+    }
+}
+
+
+.lazy-load {
+    opacity: 0.5;
+    filter: blur(5px);
+}
+
+.lazy-load.loaded {
+    opacity: 1;
+    filter: blur(0);
+    transition: opacity 0.5s, filter 0.5s;
+}

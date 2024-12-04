@@ -1,0 +1,84 @@
+:root {
+    --cyber-red: #dd0000;
+    --cyber-red-transparent: rgba(221, 0, 0, 0.05);
+    --cyber-dark: #1a1a1a;
+    --cyber-black: #0A0A0F;
+    --cyber-white: #FFFFFF;
+    --cyber-gray: #888888;
+    --navbar-height: 80px;
+    --gallery-height: 500px;
+    --neon-shadow: 0 0 10px rgba(221, 0, 0, 0.5), 0 0 20px rgba(221, 0, 0, 0.3), 0 0 30px rgba(221, 0, 0, 0.1);
+}
+
+swiper-container {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: rgba(251, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px !important;
+    height: 300px !important;
+    border: 2px solid var(--cyber-red);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination {
+    display: none;
+}
+
+swiper-slide:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(251, 0, 0, 0.4);
+}
+
+swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+swiper-slide::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-top: 2px solid var(--cyber-red);
+    transition: all 0.3s ease;
+}
+
+swiper-slide:hover::before {
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+}
+
+@media (max-width: 768px) {
+    swiper-container {
+        padding: 10px;
+    }
+
+    swiper-slide {
+        width: 100% !important;
+        max-width: 250px !important;
+        height: 250px !important;
+        margin: 0 auto;
+    }
+
+    swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}

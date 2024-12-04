@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODE RED'25 Hackathon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="./css/ps.css">
+    <link rel="icon" href="./img/logo.png">
+    <script src="https://kit.fontawesome.com/57a0898944.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.6.1/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <script src="./js/common.js"></script>
+    <script src="./js/faq.js"></script>
+    <script src="./js/index.js"></script>
+    <link rel="stylesheet" href="./css/faq.css">
+    <link rel="stylesheet" href="./css/index.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top cyber-nav">
+        <div class="container">
+            <a class="navbar-brand" href="/codered25/">
+                <img src="./img/logoBMS.png" alt="BMSIT Logo" class="nav-logo">
+                <img src="./img/logo.png" alt="CodeRed Logo" class="nav-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <input type="checkbox" name="toggle-menu" id="toggle-menu">
+                <label for="toggle-menu" type="button" class="toggle-btn">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </label>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/codered25/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="timeline.html">Timeline</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ecell.html">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ps.html">Problems</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq.html">Faq</a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+        </div>
+        <script>
+            const navbarCollapse = document.getElementById('navbarNav');
+            const body = document.body;
+            const toggleMenu = document.getElementById('toggle-menu');
+
+
+            navbarCollapse.addEventListener('show.bs.collapse', () => {
+                body.classList.add('blur-active');
+            });
+
+
+            navbarCollapse.addEventListener('hidden.bs.collapse', () => {
+                body.classList.remove('blur-active');
+            });
+
+            document.addEventListener('click', (event) => {
+                const isClickInside = navbarCollapse.contains(event.target) ||
+                    event.target.matches('.navbar-toggler, .nav-link');
+
+                if (!isClickInside) {
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                    if (bsCollapse && navbarCollapse.classList.contains('show')) {
+                        bsCollapse.hide();
+                        body.classList.remove('blur-active');
+                        toggleMenu.checked = false;
+                    }
+                }
+            });
+        </script>
+    </nav>
+
+    <div id="particles-bg"></div>
+    <section id="faq" class="cyber-section">
+        </br>
+        <div class="faq-header">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What is CODE RED'25?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>CODE RED ‘25 is a 25-hour hackathon where we'll be solving real-world problems. Also remember caffeine is our co-founder, sleep is for the weak, and innovation is for the wickedly brilliant.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Is it a remote or an on-site Hackathon?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>CODE RED ‘25 is a hybrid hackathon, where preliminary round will be conducted completely online. The Main Hackathon will be conducted on 9th and 10th January 2025 at BMS Institute of Technology and
+                        Management (BMSIT&M), Bangalore.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Who can participate in the hackathon?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        We don't care if your GPA is higher than your daily caffeine intake or if you once wrote an essay on the philosophical implications of pizza toppings as long as you're a student pursuing any undergraduate course, you're in!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How many members are allowed in a team?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Teams can consist of 3 to 4 members. Each participant can join only one team and cannot be part
+                        of multiple teams.</p>
+                </div>
+            </div>
+
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Where to ask my question?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>You can email us with any questions you still have. Join:
+                        <a class="btn btn-primary" href="https://discord.gg/5kntf93DMC" target="_blank">
+                            <i class="fab fa-discord"></i>
+                            Our Discord</a>
+                        or email us at:
+                        <a href="mailto:ecell@bmsit.in">ecell@bmsit.in</a>
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can I be part of two or more teams?  </h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>While we appreciate your ambition, unfortunately, one genius per team. We're not quite ready for parallel universes... yet!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Are there any restrictions on the use of libraries and packages?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>While there are no technical restrictions on the usage of packages, libraries, and modules, the primary focus during the final evaluation will be on the significance of your contribution to the overall project
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Will WiFi be provided?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, Wi-Fi access will be shared with all participants.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can I code in any language?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Feel free to code in any language you fancy. We believe in linguistic liberation—no language restrictions here. Whether you're fluent in Python, proficient in Java, or even speak binary, your code is welcome to join the multilingual party!
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What it takes to conquer CODE RED ‘25</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No need to check off a skill list to enter the hackathon—it's not a grocery store. However, we've got our fingers crossed for a dazzling display of innovation. Think of it as a creativity party—BYO (Bring Your Own) ingenuity, and let's code up a storm!
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can open source resources be used to replicate the project?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>The solution may include the use of open-source software, but they should ensure that:
+                    <br/>
+                        (a) They comply with applicable licenses,<br/>
+                        (b) The applicable license terms should not require the release, disclosure, or distribution of any part of the Application back to the open-source community or any third party under any circumstances
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Are travel expenses included?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No, the participants are responsible for covering their own travel expenses.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Are you sure I won't get bored or lose motivation?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Worried about losing motivation? Fear not! We've got more energy than a caffeinated squirrel and more fun than a monkey with a keyboard. Boredom says goodbye at
+                        CODE RED ‘25. </p>
+                </div>
+            </div>
+           
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you have a code of conduct?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                   <p>Yes! We will be following the <a href="https://drive.google.com/file/d/1KEiJNbwnKTV2YA2pgCnLJh3Kmg2E8K2H/view?usp=sharing"
+                        target="_blank" class="cyber-footer-links">Code of Conduct</a> <br/>TLDR: Be respectful.
+                    </p>
+                </div>
+            </div>
+           
+
+        </div>
+    </section>
+
+    <footer class="cyber-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 text-center text-md-left mb-4 mb-md-0">
+                    <div class="cyber-footer-links">
+                        <h4 class="cyber-footer-title">Quick Links</h4>
+                        <ul class="cyber-footer-links">
+                            <li><a href="https://www.google.com/maps/place/BMS+Institute+of+Technology+and+Management/@13.133363,77.5673768,15z/data=!4m2!3m1!1s0x0:0x49c4c47a68a60b9c?sa=X&ved=2ahUKEwie0qXhxqODAxVdyzgGHc2iBo0Q_BJ6BAhdEAA"
+                                    target="_blank" class="cyber-footer-links">Campus Map</a></li>
+                            <li><a href="https://drive.google.com/file/d/1gEru9NM3J0x-5VCtzmQUKNc0HR3sygVo/view?usp=drive_link"
+                                    target="_blank" class="cyber-footer-links">Code of Conduct</a></li>
+                            <li><a href="https://drive.google.com/file/d/1e88R1M6mhOMR95z_HW210E01zAWIm0QX/view?usp=drive_link"
+                                    target="_blank" class="cyber-footer-links">Privacy Policy</a></li>
+                            <li><a href="https://drive.google.com/file/d/1RNqmS5H4O6q7xvzBepRHelDnU6ztNEoL/view?usp=drive_link"
+                                    target="_blank" class="cyber-footer-links">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
+                    <h5 class="cyber-footer-title">BMS Institute of Technology and Management</h5>
+                    <p class="cyber-footer-text">Doddaballapur Main Road, Avalahalli, Yelahanka, Bengaluru, Karnataka
+                        560064</p>
+                </div>
+                <div class="col-12 col-md-4 text-center">
+                    <div class="cyber-footer-contact">
+                        <h4 class="cyber-footer-title">Contact Us</h4>
+                        <div class="d-flex flex-column align-items-center">
+                            <p>
+                                <a href="tel:+916363967172" class="cyber-footer-links">
+                                    <i class="fa fa-phone mr-2" id="phoneIcon"></i> Shashank Gowda S
+                                </a>
+                            </p>
+                            <p>
+                                <a href="tel:+919500144964" class="cyber-footer-links">
+                                    <i class="fa fa-phone mr-2" id="phoneIcon"></i> Nishitha Bodipati
+                                </a>
+                            </p>
+                            <p>
+                                <a href="tel:+918867162414" class="cyber-footer-links">
+                                    <i class="fa fa-phone mr-2" id="phoneIcon"></i> Maxson Mathew
+                                </a>
+                            </p>
+                            <p>
+                                <a href="tel:+919008551551" class="cyber-footer-links">
+                                    <i class="fa fa-phone mr-2" id="phoneIcon"></i> Mohit Monnappa T N
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="cyber-footer-social mt-4">
+                        <a href="https://www.instagram.com/ecell.bmsit/" target="_blank" class="cyber-footer-links">
+                            <i class="fab fa-instagram fa-2x"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ecellbmsit/" target="_blank" class="cyber-footer-links">
+                            <i class="fab fa-linkedin fa-2x m-2"></i>
+                        </a>
+                        <a href="mailto:ecell@bmsit.in" target="_blank" target="_blank" class="cyber-footer-links">
+                            <i class="fa fa-envelope fa-2x"></i>
+                        </a>
+                        <a href="https://discord.gg/5kntf93DMC" target="_blank" class="cyber-footer-links">
+                            <i class="fa-brands fa-discord fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    Made with
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="red">
+                        <path
+                            d="M12 21.35l-1.45-1.32C5.4 14.36 2 11.25 2 7.5 2 4.42 4.42 2 7.5 2 9.12 2 10.68 2.81 12 4.05 13.32 2.81 14.88 2 16.5 2 19.58 2 22 4.42 22 7.5c0 3.75-3.4 6.86-8.55 12.54L12 21.35z" />
+                    </svg> by E-CELL BMSIT&M
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

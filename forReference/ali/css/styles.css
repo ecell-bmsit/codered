@@ -1,0 +1,382 @@
+@font-face {
+    font-family: 'Valorant';
+    src: url('fonts/Valorant Font.ttf') format('truetype'),
+         url('fonts/Sddystopiandemo-GO7xa.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Eurostile Extended';
+    src: url('fonts/EurostileExtended-Roman.eot');
+    src: local('Eurostile Extended'), local('EurostileExtended-Roman'),
+        url('fonts/EurostileExtended-Roman.eot?#iefix') format('embedded-opentype'),
+        url('fonts/EurostileExtended-Roman.woff2') format('woff2'),
+        url('fonts/EurostileExtended-Roman.woff') format('woff'),
+        url('fonts/EurostileExtended-Roman.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Eurostile';
+    src: url('fonts/Eurostile-Oblique.eot');
+    src: local('Eurostile-Oblique'),
+        url('fonts/Eurostile-Oblique.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Eurostile-Oblique.woff2') format('woff2'),
+        url('fonts/Eurostile-Oblique.woff') format('woff'),
+        url('fonts/Eurostile-Oblique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'EuroStyle';
+    src: url('fonts/EuroStyleNormal.eot');
+    src: local('EuroStyle Normal'), local('EuroStyleNormal'),
+        url('fonts/EuroStyleNormal.eot?#iefix') format('embedded-opentype'),
+        url('fonts/EuroStyleNormal.woff2') format('woff2'),
+        url('fonts/EuroStyleNormal.woff') format('woff'),
+        url('fonts/EuroStyleNormal.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Eurostile';
+    src: url('fonts/EurostileBold.eot');
+    src: local('Eurostile Bold'), local('EurostileBold'),
+        url('fonts/EurostileBold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/EurostileBold.woff2') format('woff2'),
+        url('fonts/EurostileBold.woff') format('woff'),
+        url('fonts/EurostileBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+:root {
+    --color-primary: #ff3e3e;
+    --color-secondary: #2c0101;
+    --color-background: #121212;
+    --color-surface: #1e1e1e;
+    --color-text: #ffffff;
+    --color-text-muted: #b0b0b0;
+}
+body {
+    font-family: 'Eurostile', sans-serif;
+    background-color: #111;
+    color: #fff;
+}
+
+.valorant-font {
+    font-family: 'Valorant', sans-serif;
+}
+
+.eurostile-extended {
+    font-family: 'Eurostile Extended', sans-serif;
+}
+
+.hero {
+    background-image: url('../img/hero3.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 0 1rem;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.sponsor-card {
+    background: rgba(90, 3, 3, 0.9);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border-radius: 1rem;
+    border: 2px solid rgba(255, 0, 0, 0.2);
+}
+
+.sponsor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.5);
+}
+
+.schedule-item {
+    border-left: 4px solid #5a0303; 
+    padding-left: 1rem;
+    transition: transform 0.3s;
+}
+
+.schedule-item:hover {
+    transform: translateX(10px);
+    border-left: 4px solid #ff6347;
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+.faq-question {
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--color-light);
+    transition: color 0.3s;
+}
+
+.faq-question:hover {
+    color: #ff6347;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-answer.active {
+    max-height: 500px;
+}
+
+.countdown-container {
+    background: radial-gradient(30.03% 74.25% at 50% 0%, rgb(115, 115, 115) 0%, rgb(10, 10, 10) 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    color: #FB0000;
+    font-weight: bold;
+}
+
+.countdown-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-value {
+    font-size: 3rem;
+}
+
+.countdown-label {
+    font-size: 1rem;
+    color: #ff6347;
+}
+
+.nav-container {
+    background: rgba(137, 4, 8, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+
+/* Styles for the bookmark */
+.bookmark-link {
+    top: 15px; /* Adjust for desired vertical position */
+    right: 15px; /* Adjust for distance from right edge */
+    position: fixed;
+    z-index: 1030; /* Ensure it's on top of other elements */
+}
+
+.bookmark {
+    background-color: #890408;
+    width: 60px;
+    height: 90px;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.bookmark img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.bookmark:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.5);
+}
+
+#faq, #contact {
+    background-color: #5a0303; /* Dark maroon background */
+}
+
+
+body {
+    font-family: 'Eurostile', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+.valorant-font {
+    font-family: 'Valorant', sans-serif;
+}
+
+.eurostile-extended {
+    font-family: 'Eurostile Extended', sans-serif;
+}
+
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/hero3.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 0 1rem;
+}
+
+.sponsor-card {
+    background: var(--color-surface);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border-radius: 1rem;
+    border: 2px solid var(--color-primary);
+}
+
+.sponsor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 62, 62, 0.3);
+}
+
+.schedule-item {
+    border-left: 4px solid var(--color-primary);
+    padding-left: 1rem;
+    transition: transform 0.3s;
+}
+
+.schedule-item:hover {
+    transform: translateX(10px);
+    border-left: 4px solid var(--color-secondary);
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.faq-question {
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--color-primary);
+    transition: color 0.3s;
+}
+
+.faq-question:hover {
+    color: var(--color-secondary);
+}
+
+.countdown-container {
+    background: linear-gradient(to bottom, #2c0101, #1a0000);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.countdown-value {
+    font-size: 3rem;
+}
+
+.countdown-label {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+}
+
+.nav-container {
+    background: rgba(44, 1, 1, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.bookmark {
+    background-color: var(--color-secondary);
+    width: 60px;
+    height: 90px;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border: 2px solid var(--color-primary);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.bookmark:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 62, 62, 0.3);
+}
+
+#faq, #contact {
+    background-color: var(--color-surface);
+}
+
+/* Additional styles for better contrast and readability */
+.bg-dark {
+    background-color: var(--color-background) !important;
+}
+
+.bg-danger {
+    background-color: var(--color-secondary) !important;
+}
+
+.text-danger {
+    color: var(--color-primary) !important;
+}
+
+.btn-danger {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-danger:hover {
+    background-color: #ff6666;
+    border-color: #ff6666;
+}
+
+.list-group-item {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border-color: var(--color-primary);
+}
+
+a {
+    color: var(--color-primary);
+}
+
+a:hover {
+    color: #ff6666;
+}

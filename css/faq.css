@@ -1,0 +1,135 @@
+:root {
+  --cyber-primary: #890408;
+  --cyber-secondary: #FB0000;
+  --cyber-accent: #FF4D4D;
+  --cyber-dark: #1A1A1A;
+  --cyber-light: #FFFFFF;
+  --cyber-gradient: linear-gradient(135deg, var(--cyber-primary), var(--cyber-secondary));
+}
+
+#faq {
+  padding: 2rem;
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  border-bottom: 2px solid var(--cyber-secondary);
+  padding-bottom: 1rem;
+}
+
+.faq-header h2 {
+  font-size: 2.5rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: var(--cyber-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 1rem;
+  border: 1px solid var(--cyber-primary);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: var(--cyber-secondary);
+  box-shadow: 0 0 10px var(--cyber-accent);
+}
+
+.faq-question {
+  background-color: var(--cyber-dark);
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: #2a2a2a;
+}
+
+.faq-question h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--cyber-light);
+}
+
+.faq-question .icon {
+  color: var(--cyber-secondary);
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  background-color: rgba(137, 4, 8, 0.1);
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-answer p {
+  margin: 0;
+  padding: 1rem;
+  color: #888888;
+  line-height: 1.6;
+}
+
+.faq-item.active .faq-question {
+  background: var(--cyber-gradient);
+}
+
+.faq-item.active .faq-question .icon {
+  transform: rotate(45deg);
+  color: var(--cyber-light);
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding: 1rem;
+}
+
+.faq-more {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.more-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: black;
+  border: 2px solid red;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.more-button:hover {
+  background-color: red;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .cyber-section {
+    padding: 1rem;
+  }
+
+  .faq-header h2 {
+    font-size: 2rem;
+  }
+}

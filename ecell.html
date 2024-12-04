@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CODE RED'25 Hackathon</title>
+  <link rel="icon" href="./img/logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/57a0898944.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./css/nav.css">
+  <link rel="stylesheet" href="./css/ecell.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <script src="./js/common.js"></script>
+
+</head>
+
+<body>
+  <div id="particles-bg"></div>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top cyber-nav">
+    <div class="container">
+        <a class="navbar-brand" href="/codered25/">
+            <img src="./img/logoBMS.png" alt="BMSIT Logo" class="nav-logo">
+            <img src="./img/logo.png" alt="CodeRed Logo" class="nav-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <input type="checkbox" name="toggle-menu" id="toggle-menu">
+            <label for="toggle-menu" type="button" class="toggle-btn">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </label>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/codered25/">Home</a>
+              </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="timeline.html">Timeline</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ecell.html">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ps.html">Problems</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="faq.html">Faq</a>
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+    <script>
+        const navbarCollapse = document.getElementById('navbarNav');
+        const body = document.body;
+        const toggleMenu = document.getElementById('toggle-menu');
+
+
+        navbarCollapse.addEventListener('show.bs.collapse', () => {
+            body.classList.add('blur-active');
+        });
+
+
+        navbarCollapse.addEventListener('hidden.bs.collapse', () => {
+            body.classList.remove('blur-active');
+        });
+
+        document.addEventListener('click', (event) => {
+            const isClickInside = navbarCollapse.contains(event.target) ||
+                event.target.matches('.navbar-toggler, .nav-link');
+
+            if (!isClickInside) {
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse && navbarCollapse.classList.contains('show')) {
+                    bsCollapse.hide();
+                    body.classList.remove('blur-active');
+                    toggleMenu.checked = false;
+                }
+            }
+        });
+    </script>
+</nav>
+
+
+  <section id="EcellTeam" class="cyber-section-ecell">
+    <div class="container">
+      <header>
+        <h2 class="volunteer-title">Our Team</h2>
+      </header>
+
+      <div class="volunteer-container" id="volunteer-container"></div>
+    </div>
+  </section>
+
+  <!-- Updated Footer -->
+  <footer class="cyber-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4 text-center text-md-left mb-4 mb-md-0">
+                <div class="cyber-footer-links">
+                    <h4 class="cyber-footer-title">Quick Links</h4>
+                    <ul class="cyber-footer-links">
+                        <li><a href="https://www.google.com/maps/place/BMS+Institute+of+Technology+and+Management/@13.133363,77.5673768,15z/data=!4m2!3m1!1s0x0:0x49c4c47a68a60b9c?sa=X&ved=2ahUKEwie0qXhxqODAxVdyzgGHc2iBo0Q_BJ6BAhdEAA"
+                                target="_blank" class="cyber-footer-links">Campus Map</a></li>
+                        <li><a href="https://drive.google.com/file/d/1gEru9NM3J0x-5VCtzmQUKNc0HR3sygVo/view?usp=drive_link"
+                                target="_blank" class="cyber-footer-links">Code of Conduct</a></li>
+                        <li><a href="https://drive.google.com/file/d/1e88R1M6mhOMR95z_HW210E01zAWIm0QX/view?usp=drive_link"
+                                target="_blank" class="cyber-footer-links">Privacy Policy</a></li>
+                        <li><a href="https://drive.google.com/file/d/1RNqmS5H4O6q7xvzBepRHelDnU6ztNEoL/view?usp=drive_link"
+                                target="_blank" class="cyber-footer-links">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
+                <h5 class="cyber-footer-title">BMS Institute of Technology and Management</h5>
+                <p class="cyber-footer-text">Doddaballapur Main Road, Avalahalli, Yelahanka, Bengaluru, Karnataka
+                    560064</p>
+            </div>
+            <div class="col-12 col-md-4 text-center">
+                <div class="cyber-footer-contact">
+                    <h4 class="cyber-footer-title">Contact Us</h4>
+                    <div class="d-flex flex-column align-items-center">
+                        <p>
+                            <a href="tel:+916363967172" class="cyber-footer-links">
+                                <i class="fa fa-phone mr-2" id="phoneIcon"></i> Shashank Gowda S
+                            </a>
+                        </p>
+                        <p>
+                            <a href="tel:+919500144964" class="cyber-footer-links">
+                                <i class="fa fa-phone mr-2" id="phoneIcon"></i> Nishitha Bodipati
+                            </a>
+                        </p>
+                        <p>
+                            <a href="tel:+918867162414" class="cyber-footer-links">
+                                <i class="fa fa-phone mr-2" id="phoneIcon"></i> Maxson Mathew
+                            </a>
+                        </p>
+                        <p>
+                            <a href="tel:+919008551551" class="cyber-footer-links">
+                                <i class="fa fa-phone mr-2" id="phoneIcon"></i> Mohit Monnappa T N
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="cyber-footer-social mt-4">
+                    <a href="https://www.instagram.com/ecell.bmsit/" target="_blank" class="cyber-footer-links">
+                        <i class="fab fa-instagram fa-2x"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ecellbmsit/" target="_blank" class="cyber-footer-links">
+                        <i class="fab fa-linkedin fa-2x m-2"></i>
+                    </a>
+                    <a href="mailto:ecell@bmsit.in" target="_blank" target="_blank" class="cyber-footer-links">
+                        <i class="fa fa-envelope fa-2x"></i>
+                    </a>
+                    <a href="https://discord.gg/5kntf93DMC" target="_blank" class="cyber-footer-links">
+                        <i class="fa-brands fa-discord fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                Made with
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="red">
+                    <path
+                        d="M12 21.35l-1.45-1.32C5.4 14.36 2 11.25 2 7.5 2 4.42 4.42 2 7.5 2 9.12 2 10.68 2.81 12 4.05 13.32 2.81 14.88 2 16.5 2 19.58 2 22 4.42 22 7.5c0 3.75-3.4 6.86-8.55 12.54L12 21.35z" />
+                </svg> by E-CELL BMSIT&M
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+  <script>
+    const volunteersData = [
+      {
+        name: 'Shashank Gowda',
+        position: 'Chief Coordinator',
+        order:1,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/shashankgowdas?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+          instagram: 'https://www.instagram.com/__s.h.a.s.h.a.n.k__/profilecard/?igsh=MjhiZ3l4b2E4dzg3'
+        },
+        image: './img/volunteers/shashank.jpg'
+      },
+      {
+    name: 'Shri Adithya',
+    position: 'Overall Coordinator',
+    order:2,
+    socialLinks: {
+      linkedin: 'https://www.linkedin.com/in/shri-adithya-m-b03985328',
+      instagram: ''
+    },
+    image: './img/volunteers/shriadi.jpg'
+  },
+  {
+        name: 'Maxson',
+        position: 'Overall Coordinator',
+        order:3,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/maxson-mathew-9022082b1',
+          instagram: 'https://www.instagram.com/maxson_mathew/'
+        },
+        image: './img/volunteers/maxson.jpg'
+      },
+      {
+        name: 'Mohit',
+        position: 'Overall Coordinator',
+        order:4,
+        socialLinks: {
+          linkedin: 'http://linkedin.com/in/mohit-monnappa',
+          instagram: 'https://www.instagram.com/mohit_monnappa'
+        },
+        image: './img/volunteers/mohit.jpeg'
+      },
+      {
+        name: 'Nishitha Bodipati',
+        position: 'Public Relations Head',
+        order:6,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/nishitha-bodipati-400233248?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+          instagram: 'https://www.instagram.com/nishithabodipati/profilecard/?igsh=dGU0NTkwZjYwOHI4'
+        },
+        image: 'img/volunteers/nishitha.webp'
+      },
+      {
+    name: 'Md Ali',
+    position: 'Tech Head',
+    order:5,
+    socialLinks: {
+      linkedin: 'https://linkedin.com/in/mohammed-ali-alsakkaf/',
+      instagram: 'https://www.instagram.com/md.ali.alsakkaf/'
+    },
+    image: './img/volunteers/mdali.jpg'
+  },
+    
+      {
+        name: 'Syeeda',
+        position: 'Design Head',
+        order:7,
+        socialLinks: {
+          linkedin: 'https://in.linkedin.com/in/syeeda-aiemen-dania-saleem-303905219',
+          instagram: 'https://www.instagram.com/aiemen.dania/'
+        },
+        image: 'img/volunteers/syeeda.png'
+      },
+      {
+        name: 'SUHAS BS',
+        position: 'Operations Head',
+        order:10,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/suhasbs223/',
+          instagram: 'https://www.instagram.com/suhasbs_223?igsh=MTJna2NpZnk5dXRmdw=='
+        },
+        image: 'img/volunteers/suhasbs.jpg'
+      },
+      {
+        name: 'Hitesh R',
+        position: 'Design Head',
+        order:11,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/hitesh-gowda-41257a1b1/',
+          instagram: 'https://www.instagram.com/hiteshgowdaaa/'
+        },
+        image: 'img/volunteers/hitesh.jpg'
+      },
+      {
+        name: 'R Chandana',
+        position: 'Marketing Head',
+        order:24,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/chandana1124',
+          instagram: 'https://www.instagram.com/invites/contact/?igsh=azzsxv8f4ktz&utm_content=s0j1ucl'
+        },
+        image: './img/volunteers/chandana.jpg'
+      },
+      {
+    name: 'Shriya',
+    position: 'Content Head',
+    order:8,
+    socialLinks: {
+      linkedin: 'https://www.linkedin.com/in/',
+      instagram: ''
+    },
+    image: './img/volunteers/shriya.jpg'
+  },
+  
+      
+      {
+        name: 'Ratnakaram Sarvani',
+        position: 'Marketing Team',
+        order:23,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/ratnakaram-sarvani-a18585253?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+          instagram: 'https://www.instagram.com/sarvani_ratnakaram/profilecard/?igsh=MXM2dmZ1bDZqYmd4'
+        },
+        image: 'img/volunteers/sarvani.jpg'
+      },
+      {
+        name: 'Vaibhav B',
+        position: 'Operations Team',
+        order:9,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/vaibhav-balakundi-105178283?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+          instagram: 'https://www.instagram.com/bvaibhav_1199/profilecard/?igsh=MWNjbjZycXZxNjc1Mw=='
+        },
+        image: './img/volunteers/vaibhav.jpg'
+      },
+
+      {
+        name: 'Atul',
+        position: 'Tech Team',
+        order:17,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/atul-kumar-458aa1275',
+          instagram: 'https://www.instagram.com/atulm189/profilecard/?igsh=ang2dm5wcnAyZ2dm'
+        },
+        image: 'img/volunteers/atul.jpg'
+      },
+      {
+        name: 'Tirth',
+        position: 'Design Team',
+        order:12,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/tirth-panchori-860887206?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+          instagram: 'https://www.instagram.com/just_tirth_things/profilecard/?igsh=MXR4MmQxbGd6YXlvMA=='
+        },
+        image: './img/volunteers/tirth.jpg'
+      },
+      {
+        name: 'Akhilesh',
+        position: 'Design Team',
+        order:13,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/akhilesh-pachnanda',
+          instagram: 'https://www.instagram.com/akhilesh.pachnanda?igsh=bjRiemh2YXQ2czkz'
+        },
+        image: 'img/volunteers/akhii.jpg'
+      },
+      {
+        name: 'Bhanu Prasad N',
+        position: 'Design Team',
+        order:15,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/bhanu-prasad-n-10706424b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+          instagram: 'https://www.instagram.com/bhanu_prasad_30?igsh=MXQ4bXFqYXBpdDM4NQ%3D%3D&utm_source=qr'
+        },
+        image: './img/volunteers/bhanu.JPG'
+      },
+      
+      {
+        name: 'Gaganjith R',
+        position: 'Operations Team',
+        order:22,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/gaganjith-r',
+          instagram: 'https://www.instagram.com/gaganjithr?igsh=cmNubDNyOW4wM3pp'
+        },
+        image: './img/volunteers/ganajith.JPG'
+      },
+      
+     
+      
+      {
+        name: 'Ananya Akkihal',
+        position: 'Design Team',
+        order:14,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/ananya-akkihal-212406302?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+          instagram: 'https://www.instagram.com/ananyaakkihal/profilecard/?igsh=djB6ZGtzMGd2M3ph'
+        },
+        image: 'img/volunteers/ananya.jpg'
+      },
+      {
+        name: 'Fardeen',
+        position: 'Public Relations Team',
+        order:20,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/kfk1509',
+          instagram: 'https://www.instagram.com/fardeen._22'
+        },
+        image: 'img/volunteers/fardeen.jpg'
+      },
+
+      {
+        name: 'Arindam',
+        position: 'Marketing Team',
+        order:21,
+        socialLinks: {
+          linkedin: 'https://in.linkedin.com/in/arinsamn',
+          instagram: 'https://www.instagram.com/arinsaam?igsh=MTcweHdjZ2hrbGc2Nw=='
+        },
+        image: 'img/volunteers/arindam.jpg'
+        
+      },
+      {
+        name: 'Suhas',
+        position: 'Tech Team',
+        order:19,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/suhaspete',
+          instagram: 'https://www.instagram.com/petesuhas/'
+        },
+        image: './img/volunteers/suhas.jpg'
+      },
+      {
+        name: 'Praneel',
+        position: 'Operations Team',
+        order:16,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/praneelkalshetty?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+          instagram: 'https://www.instagram.com/praneel2623/profilecard/?igsh=MWR6NHZ6cDdpOGlncA=='
+        },
+        image: './img/volunteers/praneel.jpg'
+      },
+      
+      {
+        name: 'Kaushik',
+        position: 'Tech Team',
+        order:22,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/kaushik-m-v-s-46bbb3255',
+          instagram: 'https://www.instagram.com/n0t_kaushik/'
+        },
+        image: './img/volunteers/kaushik.jpg'
+      },
+      {
+        name: 'Gagan  HS',
+        position: 'Marketing Team',
+        order:22,
+        socialLinks: {
+          linkedin: '',
+          instagram: 'https://www.instagram.com/_notgagann'
+        },
+        image: './img/volunteers/gaganhs.jpeg'
+      },
+      {
+        name: 'Milan Sampath',
+        position: 'Tech Team',
+        order:18,
+        socialLinks: {
+          linkedin: 'https://www.linkedin.com/in/milan-sampath-0a95b72a7/',
+          instagram: 'https://www.instagram.com/milxn_18/'
+        },
+        image: 'img/volunteers/milan.jpg'
+      }
+    ];
+
+    function initializeLazyLoading() {
+      const lazyImages = document.querySelectorAll('.lazy-load');
+
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.classList.add('loaded');
+            observer.unobserve(img);
+          }
+        });
+      }, {
+        rootMargin: '50px'
+      });
+
+      lazyImages.forEach(img => imageObserver.observe(img));
+    }
+
+    function createVolunteerCard(volunteer) {
+      const card = document.createElement('div');
+      card.className = 'volunteer-card';
+
+    
+      const image = document.createElement('img');
+      image.className = 'volunteer-image lazy-load';
+      image.dataset.src = volunteer.image;
+      image.alt = volunteer.name;
+
+     
+      const name = document.createElement('div');
+      name.className = 'volunteer-name';
+      name.textContent = volunteer.name;
+
+      const position = document.createElement('div');
+      position.className = 'volunteer-position';
+      position.textContent = volunteer.position;
+
+      const socialIcons = document.createElement('div');
+      socialIcons.className = 'social-icons';
+
+      const socialPlatforms = [
+        { name: 'linkedin', icon: 'fab fa-linkedin', url: volunteer.socialLinks.linkedin },
+        { name: 'instagram', icon: 'fab fa-instagram', url: volunteer.socialLinks.instagram },
+        { name: 'twitter', icon: 'fab fa-twitter', url: volunteer.socialLinks.twitter },
+        { name: 'github', icon: 'fab fa-github', url: volunteer.socialLinks.github }
+      ];
+
+      socialPlatforms.forEach(platform => {
+        if (platform.url) {
+          const socialLink = document.createElement('a');
+          socialLink.href = platform.url;
+          socialLink.target = '_blank';
+          socialLink.className = 'social-icon';
+
+          const icon = document.createElement('i');
+          icon.className = platform.icon;
+
+          socialLink.appendChild(icon);
+          socialIcons.appendChild(socialLink);
+        }
+      });
+
+   
+      card.appendChild(image);
+      card.appendChild(name);
+      card.appendChild(position);
+      card.appendChild(socialIcons);
+
+      return card;
+    }
+
+    
+    const volunteerContainer = document.getElementById('volunteer-container');
+    const fragment = document.createDocumentFragment();
+
+    volunteersData.forEach(volunteer => {
+      const card = createVolunteerCard(volunteer);
+      fragment.appendChild(card);
+    });
+
+    volunteerContainer.appendChild(fragment);
+
+    initializeLazyLoading();
+  </script>
+</body>
+
+</html>

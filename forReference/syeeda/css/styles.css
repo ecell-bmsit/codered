@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+@font-face {
+    font-family: 'Valorant';
+    src: url('fonts/Valorant Font.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SDDystopianDemo';
+    src: url('fonts/Sddystopiandemo-GO7xa.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Eurostile Extended';
+    src: url('fonts/EurostileExtended-Roman.eot');
+    src: local('Eurostile Extended'), local('EurostileExtended-Roman'),
+        url('fonts/EurostileExtended-Roman.eot?#iefix') format('embedded-opentype'),
+        url('fonts/EurostileExtended-Roman.woff2') format('woff2'),
+        url('fonts/EurostileExtended-Roman.woff') format('woff'),
+        url('fonts/EurostileExtended-Roman.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Eurostile';
+    src: url('fonts/Eurostile-Oblique.eot');
+    src: local('Eurostile-Oblique'),
+        url('fonts/Eurostile-Oblique.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Eurostile-Oblique.woff2') format('woff2'),
+        url('fonts/Eurostile-Oblique.woff') format('woff'),
+        url('fonts/Eurostile-Oblique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'EuroStyle';
+    src: url('fonts/EuroStyleNormal.eot');
+    src: local('EuroStyle Normal'), local('EuroStyleNormal'),
+        url('fonts/EuroStyleNormal.eot?#iefix') format('embedded-opentype'),
+        url('fonts/EuroStyleNormal.woff2') format('woff2'),
+        url('fonts/EuroStyleNormal.woff') format('woff'),
+        url('fonts/EuroStyleNormal.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Eurostile';
+    src: url('fonts/EurostileBold.eot');
+    src: local('Eurostile Bold'), local('EurostileBold'),
+        url('fonts/EurostileBold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/EurostileBold.woff2') format('woff2'),
+        url('fonts/EurostileBold.woff') format('woff'),
+        url('fonts/EurostileBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* General */
+
+body {
+    background-color: black;
+    color: whitesmoke;
+    font-size: 100%;
+    font: inherit;
+    cursor: none;
+}
+
+/* Cursor */
+
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ff0000;
+    pointer-events: none;
+    transition: transform 0.3s ease-out, width 0.3s ease-out, height 0.3s ease-out;
+    z-index: 9999;
+}
+
+.cursor.over-text {
+    mix-blend-mode: darken;
+}
+
+.cursor::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ff0000;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+}
+
+/* Navbar */
+
+.navbar {
+    position: fixed;
+    left: 0; 
+    top: 0;
+    width: 70px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.navbar-nav {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-item {
+    margin: 20px 0;
+}
+
+.nav-link {
+    color: whitesmoke;
+    font-size: 1.5rem; 
+    text-align: center;
+    padding: 10px;
+    cursor: none;
+}
+
+.nav-link:hover {
+  color: red;
+  transition: none;
+}
+
+.nav-link.active {
+  color: red !important;
+}
+
+/* Hero */
+
+.hero {
+    margin-left: 130px;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    position: relative;
+    font-family: 'SDDystopianDemo', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 25vw;
+    text-align: center;
+    color: rgb(210, 210, 210);
+    line-height: 0.7;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hero p{
+    font-family: "Roboto Mono", monospace;
+    color: rgb(210, 210, 210);
+}
+
+/* Small Screens */
+
+@media only screen and (max-width: 768px) {
+    .navbar, .hero {
+        display: none !important;
+    }
+    
+    .pc-msg {
+        display: block;
+    }
+}
+
+.pc-msg {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Roboto Mono", monospace;
+    color: rgb(210, 210, 210);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    z-index: 9999;
+}
