@@ -13,95 +13,204 @@
     src: url('./fonts/EuroStyleNormal.ttf') format('truetype');
 }
 
+
+
+
 :root {
-    --neon-blue: #00f0ff;
-    --neon-pink: #ff00b8;
-    --dark-background: #0a0a1a;
-    --grid-background: #121228;
+    --cyber-primary: #890408;
+    --cyber-secondary: #FB0000;
+    --cyber-accent: #FF4D4D;
+    --cyber-dark: #1A1A1A;
+    --cyber-light: #FFFFFF;
+    --cyber-gradient: linear-gradient(135deg, var(--cyber-primary), var(--cyber-secondary));
+  }
 
+  .cyber-btn-ppt {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    position: relative;
+    text-decoration: none;
+    color: var(--cyber-secondary);
+    padding: 10px 20px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
 }
 
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.cyber-btn {
+    background: transparent;
+    border: 2px solid var(--cyber-red);
+    color: var(--cyber-red);
+    padding: 0.8rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+    cursor: pointer;
 }
 
-body {
-    background-color: var(--dark-background);
-    color: white;
-    overflow-x: hidden;
-
-
+.cyber-btn-ppt:hover {
+    background: var(--cyber-red);
+    color: var(--cyber-black);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(251, 0, 0, 0.4);
 }
 
-nav {
-    margin: 0;
-    padding: 0;
-    top: 0;
-    position: fixed;
-    z-index: 100;
-    width: 100%;
-}
-
-.navbar-brand i {
-    color: white;
-    font-size: 1.5rem;
+.cyber-btn-ppt::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-top: 2px solid var(--cyber-red);
     transition: all 0.3s ease;
 }
 
 
-
-#psWait {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    padding: 4rem 1rem;
-
-}
-
-.ps-wait-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin: 0;
-    /* max-width: 800px; */
-    width: 100%;
-    background: rgba(18, 18, 40, 0.8);
-    border: 2px solid var(--neon-blue);
-    border-radius: 8px;
-    padding: 3rem;
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
-    backdrop-filter: blur(10px);
-
-}
-
-.announcement-title {
-    font-family: 'valorant', sans-serif;
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: white;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    text-shadow: 0 0 10px var(--neon-blue);
-}
-
-.announcement-details {
-    font-family: 'eurostile', sans-serif;
-    font-size: 1.6rem;
-    color: #ffffff;
-    line-height: 1.8;
-    margin: 0 auto;
-    max-width: 600px;
-    letter-spacing: 2px;
-}
-
-.highlight {
-    color: var(--neon-pink);
+.ps-question .problem-id {
+    color: var(--cyber-accent);
     font-weight: bold;
+    margin-right: 8px;
 }
+  
+  #ps {
+    padding: 2rem;
+  }
+  
+  .ps-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid var(--cyber-secondary);
+    padding-bottom: 1rem;
+  }
+  
+  .ps-header h2 {
+    font-size: 2.5rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: var(--cyber-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .ps-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .ps-item {
+    margin-bottom: 1rem;
+    border: 2px solid var(--cyber-primary);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ps-item:hover {
+    border-color: var(--cyber-accent);
+    box-shadow: 0px 6px 10px rgba(251, 0, 0, 0.4);
+  }
+  @keyframes borderRotate {
+	100% {
+		--angle: 420deg;
+	}
+}
+  .ps-question {
+    background-color: var(--cyber-dark);
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ps-question:hover {
+    background-color: #2a2a2a;
+}
+  
+  .ps-question h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--cyber-light);
+    display: flex;
+    align-items: center;
+  }
+  
+  .ps-question .icon {
+    color: var(--cyber-light);
+    font-size: 1.5rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+ .ps-answer {
+    background-color: rgba(137, 4, 8, 0.1);
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+  .ps-answer p {
+    margin: 0;
+    padding: 1rem;
+    color: #888888;
+    line-height: 1.6;
+}
+  
+  .ps-item.active .ps-question {
+    background: var(--cyber-gradient);
+  }
+  
+  .ps-item.active .ps-question .icon {
+    transform: rotate(180deg);
+    color: var(--cyber-light);
+}
+.ps-item.active .ps-question .problem-id {
+    
+    color: var(--cyber-light);
+}
+  
+  .ps-item.active .ps-answer {
+    max-height: 500px;
+    padding: 1rem;
+  }
+  
+ 
+  
+  .ps-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: black;
+    border: 2px solid red;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  @keyframes borderRotate {
+    100% {
+        --angle: 420deg;
+    }
+}
+  .ps-button:hover {
+    background-color: red;
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .cyber-section {
+      padding: 1rem;
+    }
+    
+    .ps-header h2 {
+      font-size: 1.7rem;
+    }
+  }
+
