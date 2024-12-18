@@ -24,6 +24,7 @@
     <link rel="icon" href="./img/logo.png">
     <link rel="stylesheet" href="./css/whyparticipate.css">
     <link rel="stylesheet" href="./css/faq.css">
+    <link rel="stylesheet" href="./css/sponsor.css">
     <link rel="stylesheet" href="./css/gallery.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
@@ -363,6 +364,13 @@
         </div>
     </section>
 
+    <section class="sponsors-section">
+        <h2 class="sponsors-title">Our Sponsors</h2>
+        <div class="sponsors-grid" id="sponsorsGrid"></div>
+    </section>
+
+
+
     <!-- FAQ Section -->
     <section id="faq" class="cyber-section">
         <div class="faq-header">
@@ -560,7 +568,47 @@
             }, 10000);
         });
 
+        const sponsors = [
+            {
+                logo: './img/sponsors/predator.jpg',
+                name: 'Predator Energy'
+            },
+            {
+                logo: './img/sponsors/quantech.png',
+                name: 'Quantech'
+            },
+            {
+                logo: './img/sponsors/xyz.png',
+                name: '.XYZ'
+            },
+            {
+                logo: './img/sponsors/metamorf.jpeg',
+                name: 'metamorf'
+            }
+        ];
 
+        const sponsorsGrid = document.getElementById('sponsorsGrid');
+
+        sponsors.forEach(sponsor => {
+            const sponsorCard = document.createElement('div');
+            sponsorCard.classList.add('sponsor-card');
+
+            const logo = document.createElement('div');
+            logo.classList.add('sponsor-logo');
+
+            const img = document.createElement('img');
+            img.src = sponsor.logo;
+            img.alt = sponsor.name;
+
+            const name = document.createElement('div');
+            name.classList.add('sponsor-name');
+            name.textContent = sponsor.name;
+
+            logo.appendChild(img);
+            sponsorCard.appendChild(logo);
+            sponsorCard.appendChild(name);
+            sponsorsGrid.appendChild(sponsorCard);
+        });
 
     </script>
     <script src="./js/common.js"></script>
