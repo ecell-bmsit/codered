@@ -23,6 +23,10 @@
     --navbar-height: 80px;
 }
 
+#extension{
+    color: var(--cyber-red);
+}
+
 .hero-section {
     min-height: 100vh;
     background: linear-gradient(135deg, var(--cyber-black) 0%, #120000 50%, var(--cyber-black) 100%);
