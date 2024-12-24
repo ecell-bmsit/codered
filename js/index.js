@@ -16,7 +16,7 @@ const countdown = setInterval(function() {
 
     if (distance < 0) {
         clearInterval(countdown);
-        document.getElementById("countdown").innerHTML = "HACKATHON IN PROGRESS";
+        document.getElementById("countdown").innerHTML = `Thanks for registering!<br>Stay tuned for more updates.`; 
     }
 }, 1000);
 
