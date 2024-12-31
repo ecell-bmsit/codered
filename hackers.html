@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 50 Teams</title>
+    <link rel="stylesheet" href="./css/top50.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="./css/ps.css">
+    <link rel="icon" href="./img/logo.png">
+    <script src="https://kit.fontawesome.com/57a0898944.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.6.1/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <script src="./js/common.js"></script>
+    <script src="./js/faq.js"></script>
+    <script src="./js/index.js"></script>
+    <link rel="stylesheet" href="./css/timeline.css">
+    <link rel="stylesheet" href="./css/index.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top cyber-nav">
+        <div class="container">
+            <a class="navbar-brand" href="/codered25/">
+                <img src="./img/logoBMS.png" alt="BMSIT Logo" class="nav-logo">
+                <img src="./img/logo.png" alt="CodeRed Logo" class="nav-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <input type="checkbox" name="toggle-menu" id="toggle-menu">
+                <label for="toggle-menu" type="button" class="toggle-btn">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </label>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/codered25/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="timeline.html">Timeline</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ecell.html">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ps.html">Problems</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq.html">Faq</a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+        </div>
+        <script>
+            const navbarCollapse = document.getElementById('navbarNav');
+            const body = document.body;
+            const toggleMenu = document.getElementById('toggle-menu');
+
+
+            navbarCollapse.addEventListener('show.bs.collapse', () => {
+                body.classList.add('blur-active');
+            });
+
+
+            navbarCollapse.addEventListener('hidden.bs.collapse', () => {
+                body.classList.remove('blur-active');
+            });
+
+            document.addEventListener('click', (event) => {
+                const isClickInside = navbarCollapse.contains(event.target) ||
+                    event.target.matches('.navbar-toggler, .nav-link');
+
+                if (!isClickInside) {
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                    if (bsCollapse && navbarCollapse.classList.contains('show')) {
+                        bsCollapse.hide();
+                        body.classList.remove('blur-active');
+                        toggleMenu.checked = false;
+                    }
+                }
+            });
+        </script>
+    </nav>
+
+
+    <div id="particles-bg"></div>
+
+    <div class="content-header">
+        <h2>Hackers</h2>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search teams or institutes...">
+        </div>
+        <!-- Desktop Filter Buttons -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-ps="all">All</button>
+            <button class="filter-btn" data-ps="CR-01">CR 01</button>
+            <button class="filter-btn" data-ps="CR-02">CR 02</button>
+            <button class="filter-btn" data-ps="CR-03">CR 03</button>
+            <button class="filter-btn" data-ps="CR-04">CR 04</button>
+            <button class="filter-btn" data-ps="CR-05">CR 05</button>
+            <button class="filter-btn" data-ps="CR-06">CR 06</button>
+            <button class="filter-btn" data-ps="CR-07">CR 07</button>
+            <button class="filter-btn" data-ps="CR-08">CR 08</button>
+            <button class="filter-btn" data-ps="CR-09">CR 09</button>
+            <button class="filter-btn" data-ps="CR-10">CR 10</button>
+        </div>
+        <!-- Mobile Filter Dropdown -->
+        <div class="filter-dropdown">
+            <select id="filterSelect">
+                <option value="all">All</option>
+                <option value="CR-01">CR01</option>
+                <option value="CR-02">CR 02</option>
+                <option value="CR-03">CR 03</option>
+                <option value="CR-04">CR 04</option>
+                <option value="CR-05">CR 05</option>
+                <option value="CR-06">CR 06</option>
+                <option value="CR-07">CR 07</option>
+                <option value="CR-08">CR 08</option>
+                <option value="CR-09">CR 09</option>
+                <option value="CR-10">CR 10</option>
+            </select>
+        </div>
+    </div>
+
+    <main>
+        <div id="teamContainer" class="team-grid"></div>
+        <h3 class="section-header">Waiting List</h3>
+        <div id="waitingListContainer" class="team-grid waiting-section"></div>
+    </main>
+
+
+    <script>
+        const teams = [
+        
+        {
+    id: 1,
+    problemStatementId: "CR-01",
+    teamLeader: "Aaryan",
+    teamName: "SHADOW",
+    institute: "CMRIT, Bangalore",
+    isWaitingList: false
+},
+{
+    id: 2,
+    problemStatementId: "CR-01",
+    teamName: "Whiplash",
+    teamLeader: "Siddharth",
+    institute: "BMSIT&M, Bangalore",
+    isWaitingList: false
+},
+{
+    id: 3,
+    problemStatementId: "CR-01",
+    teamName: "House of Void",
+    teamLeader: "Anuday",
+    institute: "BMSIT&M, Bangalore",
+    isWaitingList: false
+},
+{
+    id: 4,
+    problemStatementId: "CR-01",
+    teamName: "OLD MONK",
+    teamLeader: "R V Reddy",
+    institute: "NMIT, Bangalore",
+    isWaitingList: false
+},
+{
+    id: 5,
+    problemStatementId: "CR-01",
+    teamName: "MORE THAN CODE",
+    teamLeader: "Pratham",
+    institute: "AIT, Bengaluru",
+    isWaitingList: false
+},
+{
+    id: 6,
+    problemStatementId: "CR-01",
+    teamName: "ZeroPoint8",
+    teamLeader: "Ayush",
+    institute: "VIT,Pune",
+    isWaitingList: false
+},
+{
+    id: 7,
+    problemStatementId: "CR-02",
+    teamName: "Neon Nerds",
+    teamLeader: "Shubham",
+    institute: "SIT, Tumkur",
+    isWaitingList: false
+},
+{
+    id: 8,
+    problemStatementId: "CR-02",
+    teamName: "blaze",
+    teamLeader: "Deepak s",
+    institute: "REC, Chennai",
+    isWaitingList: false
+},
+{
+    id: 9,
+    problemStatementId: "CR-02",
+    teamName: "LiteLite",
+    institute: "NITK, Surathkal",
+    teamLeader: "Joshua Thomas",
+    isWaitingList: false
+},
+{
+    id: 10,
+    problemStatementId: "CR-02",
+    teamName: "L Coders",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Smriti",
+    isWaitingList: false
+},
+{
+    id: 11,
+    problemStatementId: "CR-02",
+    teamName: "Advaryus",
+    institute: "RIT, Bengaluru",
+    teamLeader: "Ishan C",
+    isWaitingList: false
+},
+{
+    id: 12,
+    problemStatementId: "CR-02",
+    teamName: "Ekalavya Engines",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Pranav K",
+    isWaitingList: false
+},
+{
+    id: 13,
+    problemStatementId: "CR-03",
+    teamName: "underScore",
+    institute: "CIT , Chennai",
+    teamLeader: "Fiza T",
+    isWaitingList: false
+},
+{
+    id: 14,
+    problemStatementId: "CR-03",
+    teamName: "Kasukabe Defence Crew",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Aryan A",
+    isWaitingList: false
+},
+{
+    id: 15,
+    problemStatementId: "CR-03",
+    teamName: "Team Codogram",
+    institute: "JSSSTU, Mysore",
+    teamLeader: "Sahil K",
+    isWaitingList: false
+},
+{
+    id: 16,
+    problemStatementId: "CR-03",
+    teamName: "The Golden Trio",
+    institute: "SSEC, Chennai",
+    teamLeader: "Prabhu S",
+    isWaitingList: false
+},
+{
+    id: 17,
+    problemStatementId: "CR-03",
+    teamName: "SupplyWave",
+    institute: "SIT, Tumkur",
+    teamLeader: "Jayanth Y H M",
+    isWaitingList: false
+},
+{
+    id: 18,
+    problemStatementId: "CR-04",
+    teamName: "HackGeniuses",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Sarthak P",
+    isWaitingList: false
+},
+{
+    id: 19,
+    problemStatementId: "CR-04", 
+    teamName: "DNYX",
+    institute: "MSRIT , Chennai",
+    teamLeader: "Rudhresh S",
+    isWaitingList: false
+},
+{
+    id: 20,
+    problemStatementId: "CR-04",
+    teamName: "Byte burst", 
+    institute: "REVA University, Bangalore",
+    teamLeader: "Pritam D",
+    isWaitingList: false
+},
+{
+    id: 21,
+    problemStatementId: "CR-04",
+    teamName: "Pheonix",
+    institute: "BMSIT&M, Bangalore", 
+    teamLeader: "Aanish P",
+    isWaitingList: false
+},
+{
+    id: 22,
+    problemStatementId: "CR-04",
+    teamName: "Syntax Error",
+    institute: "RIT, Bengaluru",
+    teamLeader: "Vishwas D",
+    isWaitingList: false
+},
+{
+    id: 23,
+    problemStatementId: "CR-04",
+    teamName: "CELESTIUS",
+    institute: "MSRIT , Chennai",
+    teamLeader: "E K S Eswar",
+    isWaitingList: false
+},
+{
+    id: 24,
+    problemStatementId: "CR-05",
+    teamName: "Ctrl C Ctrl V",
+    institute: "MIT, Bengaluru",
+    teamLeader: "Pranav A R",
+    isWaitingList: false
+},
+{
+    id: 25,
+    problemStatementId: "CR-05",
+    teamName: "SEA-KERS",
+    institute: "Dr. AIT, Bangalore",
+    teamLeader: "Manoj G R",
+    isWaitingList: false
+},
+{
+    id: 26,
+    problemStatementId: "CR-05",
+    teamName: "Spartans", 
+    institute: "Dr. AIT, Bangalore",
+    teamLeader: "Sharan R",
+    isWaitingList: false
+},
+{
+    id: 27,
+    problemStatementId: "CR-05",
+    teamName: "Renex",
+    institute: "FXEC, Tamil Nadu",
+    teamLeader: "Sai Maharajan",
+    isWaitingList: false
+},
+{
+    id: 28,
+    problemStatementId: "CR-05",
+    teamName: "Kudos",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Spandana H",
+    isWaitingList: false
+},
+{
+    id: 29,
+    problemStatementId: "CR-06",
+    teamName: "Unicorn",
+    institute: " RVCE, Bangalore",
+    teamLeader: "Prabu J", 
+    isWaitingList: false
+},
+{
+    id: 30,
+    problemStatementId: "CR-06",
+    teamName: "Simpsons",
+    institute: "SNU, Chennai",
+    teamLeader: "Roahith R",
+    isWaitingList: false
+},
+{
+    id: 31,
+    problemStatementId: "CR-07",
+    teamName: "Ctrl Alt Elite",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Samarth J",
+    isWaitingList: false
+},
+{
+    id: 32,
+    problemStatementId: "CR-07",
+    teamName: "Semicolon;",
+    institute: "DSCE , Bengaluru",
+    teamLeader: "Munagala C",
+    isWaitingList: false
+},
+{
+    id: 33,
+    problemStatementId: "CR-07",
+    teamName: "Hackvok",
+    institute: "SRMCE , Bareilly",
+    teamLeader: "Astha",
+    isWaitingList: false
+},
+{
+    id: 34,
+    problemStatementId: "CR-07",
+    teamName: "aayye",
+    institute: "RVCE, Bengaluru",
+    teamLeader: "Nikunj M",
+    isWaitingList: false
+},
+{
+    id: 35,
+    problemStatementId: "CR-08",
+    teamName: "TraffixBLR",
+    institute: "PESU ,Bengaluru",
+    teamLeader: "S V S Reddy",
+    isWaitingList: false
+},
+{
+    id: 36,
+    problemStatementId: "CR-08",
+    teamName: "No Brain Cells Left",
+    institute: "PES University",
+    teamLeader: "Shailja S",
+    isWaitingList: false
+},
+{
+    id: 37,
+    problemStatementId: "CR-08",
+    teamName: "RedByte",
+    institute: "RIT, Bangalore",
+    teamLeader: "Abhinav M G",
+    isWaitingList: false
+},
+{
+    id: 38,
+    problemStatementId: "CR-08",
+    teamName: "Hack-D. Pirates",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Shreyas S J",
+    isWaitingList: false
+},
+{
+    id: 39,
+    problemStatementId: "CR-08",
+    teamName: "Windows 9 Devs",
+    institute: "PESU, Bengaluru",
+    teamLeader: "Souriesh P. B",
+    isWaitingList: false
+},
+{
+    id: 40,
+    problemStatementId: "CR-09",
+    teamName: "ByteForge",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Aflak T",
+    isWaitingList: false
+},
+{
+    id: 41,
+    problemStatementId: "CR-09",
+    teamName: "Sync",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Sai S",
+    isWaitingList: false
+},
+{
+    id: 42,
+    problemStatementId: "CR-09",
+    teamName: "On_Steroids",
+    institute: "DSI, Bengaluru",
+    teamLeader: "Inchara J",
+    isWaitingList: false
+},
+{
+    id: 43,
+    problemStatementId: "CR-09",
+    teamName: "Decoder",
+    institute: "SJCE, Mysore",
+    teamLeader: "Chiranth R",
+    isWaitingList: false
+},
+{
+    id: 44,
+    problemStatementId: "CR-09",
+    teamName: "Hextech",
+    institute: "JSSSTU, Mysore",
+    teamLeader: "Rithwik B",
+    isWaitingList: false
+},
+{
+    id: 45,
+    problemStatementId: "CR-10",
+    teamName: "Trailblazers",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Ananya D",
+    isWaitingList: false
+},
+{
+    id: 46,
+    problemStatementId: "CR-10",
+    teamName: "TerraHaul",
+    institute: "ADYPU, Pune",
+    teamLeader: "Deven M",
+    isWaitingList: false
+},
+{
+    id: 47,
+    problemStatementId: "CR-10",
+    teamName: "AGON",
+    institute: "PES University Ring Road Campus",
+    teamLeader: "Harshavardhana M",
+    isWaitingList: false
+},
+{
+    id: 48,
+    problemStatementId: "CR-10",
+    teamName: "Sniptech Titans",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Kushal V A",
+    isWaitingList: false
+},
+{
+    id: 49,
+    problemStatementId: "CR-10",
+    teamName: "GENESIS",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Hemanth S",
+    isWaitingList: false
+},
+{
+    id: 50,
+    problemStatementId: "CR-10",
+    teamName: "EnergeX",
+    institute: "JSSSTU, Mysuru.",
+    teamLeader: "Aryan A",
+    isWaitingList: false
+},
+{
+    id: 51,
+    problemStatementId: "CR-03",
+    teamName: "Zero day syndicate",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Rohan B",
+    isWaitingList: true
+},
+{
+    id: 52,
+    problemStatementId: "CR-01",
+    teamName: "Camel case",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Aman",
+    isWaitingList: true
+},
+{
+    id: 53,
+    problemStatementId: "CR-01",
+    teamName: "Tech Titans",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Madhav K p s",
+    isWaitingList: true
+},
+{
+    id: 54,
+    problemStatementId: "CR-02",
+    teamName: "Royal Challengers BMSIT",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Ganeshdarshan B",
+    isWaitingList: true
+},
+{
+    id: 55,
+    problemStatementId: "CR-02",
+    teamName: "German Liberation Army",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Samarth V",
+    isWaitingList: true
+},
+{
+    id: 56,
+    problemStatementId: "CR-03",
+    teamName: "Complex",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Badari N",
+    isWaitingList: true
+},
+{
+    id: 57,
+    problemStatementId: "CR-04",
+    teamName: "Team Zero",
+    institute: "CIT, Bangalore",
+    teamLeader: "Kaif A K",
+    isWaitingList: true
+},
+{
+    id: 58,
+    problemStatementId: "CR-04",
+    teamName: "Code crusaders",
+    institute: "CMRIT, Bangalore",
+    teamLeader: "Meghana P T",
+    isWaitingList: true
+},
+{
+    id: 59,
+    problemStatementId: "CR-05",
+    teamName: "Stackslash",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Keerti B",
+    isWaitingList: true
+},
+{
+    id: 60,
+    problemStatementId: "CR-06", 
+    teamName: "Kuro",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Allen P T",
+    isWaitingList: true
+},
+{
+    id: 61,
+    problemStatementId: "CR-07",
+    teamName: "Philomaths", 
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Meghana K",
+    isWaitingList: true
+},
+{
+    id: 62,
+    problemStatementId: "CR-08",
+    teamName: "Fab Four",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Prajna.S",
+    isWaitingList: true
+},
+{
+    id: 63,
+    problemStatementId: "CR-09",
+    teamName: "Team Kivara",
+    institute: "NMIT, Bangalore",
+    teamLeader: "Arya A P",
+    isWaitingList: true,
+   
+},
+{
+    id: 64,
+    problemStatementId: "CR-09",
+    teamName: "4Randos",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Akshay P",
+    isWaitingList: true,
+    
+},
+{
+    id: 65,
+    problemStatementId: "CR-10",
+    teamName: "bit_0100",
+    institute: "BMSIT&M, Bangalore",
+    teamLeader: "Impu R HM",
+    isWaitingList: true,
+    
+},
+{
+    id: 66,
+    problemStatementId: "CR-10",
+    teamName: "VisionCrafter",
+    institute: "HKBKCE ,Karnataka",
+    teamLeader: "Ajay K T",
+    isWaitingList: true,
+    
+} 
+        ];
+
+        function createTeamCard(team) {
+            const card = document.createElement('div');
+            card.className = 'team-card';
+            let waitingListBadge = team.isWaitingList ? '<div class="waiting-list-badge">Waiting List</div>' : '';
+            card.innerHTML = `
+                ${waitingListBadge}
+                <div class="problem-id">${team.problemStatementId}</div>
+                <h2>${team.teamName}</h2>
+                <div class="team-info">
+                    <p><strong>Team Lead </strong>: ${team.teamLeader}</p>
+                    <p class="institute">${team.institute}</p>
+                </div>
+            `;
+            return card;
+        }
+
+        function filterTeams() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const activeFilter = window.innerWidth <= 768 
+                ? document.getElementById('filterSelect').value
+                : document.querySelector('.filter-btn.active').dataset.ps;
+            
+            const mainTeams = teams.filter(team => !team.isWaitingList);
+            const waitingTeams = teams.filter(team => team.isWaitingList);
+            
+            const filteredMainTeams = mainTeams.filter(team => {
+                const matchesSearch = team.teamName.toLowerCase().includes(searchTerm) ||
+                    team.teamLeader.toLowerCase().includes(searchTerm) ||
+                    team.institute.toLowerCase().includes(searchTerm);
+                
+                const matchesFilter = activeFilter === 'all' || team.problemStatementId === activeFilter;
+                
+                return matchesSearch && matchesFilter;
+            });
+
+            const filteredWaitingTeams = waitingTeams.filter(team => {
+                const matchesFilter = activeFilter === 'all' || team.problemStatementId === activeFilter;
+                return matchesFilter;
+            });
+            
+            displayTeams(filteredMainTeams, filteredWaitingTeams);
+        }
+
+        function displayTeams(mainTeams, waitingTeams) {
+            const mainContainer = document.getElementById('teamContainer');
+            const waitingContainer = document.getElementById('waitingListContainer');
+            
+            mainContainer.innerHTML = '';
+            waitingContainer.innerHTML = '';
+            
+            mainTeams.forEach(team => {
+                mainContainer.appendChild(createTeamCard(team));
+            });
+
+            waitingTeams.forEach(team => {
+                waitingContainer.appendChild(createTeamCard(team));
+            });
+            
+           
+            [mainContainer, waitingContainer].forEach(container => {
+                setTimeout(() => {
+                    container.querySelectorAll('.team-card').forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, index * 100);
+                    });
+                }, 100);
+            });
+        }
+
+        // Event Listeners
+        document.getElementById('searchInput').addEventListener('input', filterTeams);
+        
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                filterTeams();
+            });
+        });
+
+        document.getElementById('filterSelect').addEventListener('change', filterTeams);
+
+        // Initial display
+        const mainTeams = teams.filter(team => !team.isWaitingList);
+        const waitingTeams = teams.filter(team => team.isWaitingList);
+        displayTeams(mainTeams, waitingTeams);
+    </script>
+    </script>
+</body>
+</html>
