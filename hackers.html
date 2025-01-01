@@ -293,7 +293,7 @@
     id: 19,
     problemStatementId: "CR-04", 
     teamName: "DNYX",
-    institute: "MSRIT , Chennai",
+    institute: "MSRIT , Bangalore",
     teamLeader: "Rudhresh S",
     isWaitingList: false
 },
@@ -325,7 +325,7 @@
     id: 23,
     problemStatementId: "CR-04",
     teamName: "CELESTIUS",
-    institute: "MSRIT , Chennai",
+    institute: "MSRIT , Bangalore",
     teamLeader: "E K S Eswar",
     isWaitingList: false
 },
@@ -749,7 +749,7 @@
             });
         }
 
-        // Event Listeners
+      
         document.getElementById('searchInput').addEventListener('input', filterTeams);
         
         document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -762,7 +762,7 @@
 
         document.getElementById('filterSelect').addEventListener('change', filterTeams);
 
-        // Initial display
+      
         const mainTeams = teams.filter(team => !team.isWaitingList);
         const waitingTeams = teams.filter(team => team.isWaitingList);
         displayTeams(mainTeams, waitingTeams);
