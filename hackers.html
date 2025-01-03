@@ -566,7 +566,7 @@
     problemStatementId: "CR-01",
     teamName: "Tech Titans",
     institute: "BMSIT&M, Bangalore",
-    teamLeader: "Vivek S m",
+    teamLeader: "Vivek Sm",
     isWaitingList: true
 },
 {
@@ -679,21 +679,46 @@
 } 
         ];
 
-        function createTeamCard(team) {
-            const card = document.createElement('div');
-            card.className = 'team-card';
-            let waitingListBadge = team.isWaitingList ? '<div class="waiting-list-badge">Waiting List</div>' : '';
-            card.innerHTML = `
-                ${waitingListBadge}
-                <div class="problem-id">${team.problemStatementId}</div>
-                <h2>${team.teamName}</h2>
-                <div class="team-info">
-                    <p><strong>Team Lead </strong>: ${team.teamLeader}</p>
-                    <p class="institute">${team.institute}</p>
-                </div>
-            `;
-            return card;
-        }
+   const quotes = [
+    "Innovation distinguishes leaders from followers.",
+    "The code is mightier than the sword.",
+    "Debug your limits, program your success.",
+    "Turning caffeine into code since forever.",
+    "In code we trust, in bugs we debug.",
+    "Where there's a bug, there's a feature.",
+    "Code today, innovate tomorrow.",
+    "Bytes of wisdom, bits of excellence.",
+    "Complexity is solved with elegance.",
+    "Building tomorrow's solutions today.",
+    "Algorithms are the poetry of logic.",
+    "Dream big, debug small, deploy often.",
+    "Every line of code is a step forward.",
+    "Simplicity is the soul of programming.",
+    "Great code is like a great symphony.",
+    "From errors, we build perfection.",
+    "Creativity starts where code begins.",
+    "Coding is the art of solving puzzles.",
+    "Data-driven dreams build better futures.",
+    "Persistence turns bugs into brilliance."
+];
+
+function createTeamCard(team) {
+    const card = document.createElement('div');
+    card.className = 'team-card';
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    let waitingListBadge = team.isWaitingList ? '<div class="waiting-list-badge">Waiting List</div>' : '';
+    
+    card.innerHTML = `
+        ${waitingListBadge}
+        <div class="problem-id">${team.problemStatementId}</div>
+        <h2>${team.teamName}</h2>
+        <div class="team-info">
+            <p><strong>Team Lead </strong>: ${team.teamLeader}</p>
+            <p class="team-quote">"${randomQuote}"</p>
+        </div>
+    `;
+    return card;
+}
 
         function filterTeams() {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
