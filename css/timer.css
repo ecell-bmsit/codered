@@ -1,0 +1,284 @@
+@font-face {
+    font-family: 'valorant';
+    src: url('./fonts/Orbitron-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'sd-dystopian';
+    src: url('./fonts/sd-dystopian.otf') format('opentype');
+}
+
+:root {
+    --cyber-red: #dd0000;
+    --cyber-red-transparent: rgba(221, 0, 0, 0.05);
+    --cyber-dark: #1a1a1a;
+    --cyber-black: #0A0A0F;
+    --cyber-white: #FFFFFF;
+    --cyber-gray: #888888;
+    --progress-height: 40px;
+    --progress-border: 3px;
+}
+
+body {
+    margin: 0;
+    background: var(--cyber-black);
+    color: var(--cyber-white);
+    font-family: 'valorant', sans-serif;
+}
+
+.hero-section {
+    min-height: 100vh;
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-text {
+    color: var(--cyber-white);
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.main-text {
+font-family: 'sd-dystopian', sans-serif;
+color: var(--cyber-red);
+font-size: clamp(1.8rem, 16vw, 7rem);
+text-transform: uppercase;
+position: relative;
+letter-spacing: 0.01em;
+line-height: 1;
+text-shadow: 0 0 10px rgba(221, 0, 0, 0.5);
+text-align: center;
+display: inline-block;
+top:15px;
+}
+
+.year {
+font-size: clamp(0.7rem, 8vw, 3rem);
+color: var(--cyber-red);
+font-family: 'valorant', sans-serif !important;
+vertical-align: super; /* Changed from super */
+text-align: center;
+position: relative;
+display: inline-block;
+}
+
+
+.tagline {
+    color: var(--cyber-gray);
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    margin: 1rem 0 0.5rem;
+    text-align: center;
+}
+
+.subtitle {
+    color: var(--cyber-white);
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    margin: 0.5rem 0 3rem;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+
+
+
+
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.time-block {
+    background: var(--cyber-black);
+    border: var(--progress-border) solid var(--cyber-red);
+    padding: 1.5rem 2rem;
+    min-width: 120px;
+    text-align: center;
+    position: relative;
+    clip-path: polygon(
+        0 10px, 
+        10px 0, 
+        calc(100% - 10px) 0, 
+        100% 10px, 
+        100% calc(100% - 10px), 
+        calc(100% - 10px) 100%, 
+        10px 100%, 
+        0 calc(100% - 10px)
+    );
+    box-shadow: 0 0 20px rgba(221, 0, 0, 0.2);
+}
+
+.time-value {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--cyber-red);
+    margin: 0;
+    text-shadow: 0 0 10px rgba(221, 0, 0, 0.5);
+    font-family: 'valorant', monospace;
+}
+
+.time-label {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    color: var(--cyber-white);
+    text-transform: uppercase;
+    margin: 0.5rem 0 0;
+    letter-spacing: 0.1em;
+}
+
+.progress-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 2rem auto;
+    position: relative;
+    padding: 3px;
+    background: linear-gradient(90deg, 
+        var(--cyber-red) 0%, 
+        #ff1a1a 50%, 
+        var(--cyber-red) 100%);
+    clip-path: polygon(
+        0 0, 
+        calc(100% - 20px) 0, 
+        100% 20px, 
+        100% 100%, 
+        20px 100%, 
+        0 calc(100% - 20px)
+    );
+}
+
+.progress-bar {
+    height: var(--progress-height);
+    background: var(--cyber-black);
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(
+        2px 2px, 
+        calc(100% - 22px) 2px, 
+        calc(100% - 2px) 22px, 
+        calc(100% - 2px) calc(100% - 2px), 
+        22px calc(100% - 2px), 
+        2px calc(100% - 22px)
+    );
+}
+
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, 
+    var(--cyber-red) 0%, 
+    #ff1a1a 50%, 
+    var(--cyber-red) 100%);
+    transition: width 0.5s ease-in-out;
+    border-radius: 0;
+    position: absolute;
+    left: 0;
+    overflow: hidden; /* Important for containing the glow effect */
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -150%; /* Start further outside */
+    width: 100px; /* Wider glow */
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    filter: blur(5px); /* Add blur for softer glow */
+    transform: skewX(-25deg); /* Tilt the glow */
+    animation: glowAnimation 2s ease-in-out infinite;
+}
+
+@keyframes glowAnimation {
+    0% {
+        right: -150%;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        right: 150%;
+        opacity: 0;
+    }
+}
+
+/* Add this for an extra shine effect */
+.progress-fill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+    );
+}
+
+.footer-text {
+    color: var(--cyber-gray);
+    font-size: 2rem; 
+    margin-top: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--cyber-red);  
+    text-shadow: 0 0 10px rgba(221, 0, 0, 0.3);
+}
+
+#particles-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes pulseEvent {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@keyframes glowAnimation {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 768px) {
+    .progress-container {
+        width: 90%;
+    }
+    
+    .time-block {
+        padding: 1rem 1.5rem;
+        min-width: 90px;
+    }
+    
+    .event-container {
+        width: 90%;
+    }
+}
